@@ -1,0 +1,76 @@
+CREATE TABLE `DangNhap` (
+  `TaiKhoan` varchar(20) NOT NULL,
+  `MatKhau` varchar(20) NOT NULL
+);
+INSERT INTO `DangNhap` (`TaiKhoan`, `MatKhau`) VALUES ('huunghia', '123');
+
+
+CREATE TABLE `KhachHang` (
+  `TenKhachHang` varchar(40) NOT NULL,
+  `DiaChi` varchar(40) NOT NULL,
+  `SDT` bigint(10) NOT NULL,
+  `LoaiKhachHang` varchar(10) NOT NULL
+);
+
+
+CREATE TABLE `NhaHang` (
+  `IDMon` int(3) NOT NULL AUTO_INCREMENT,
+  `TenMon` varchar(20) NOT NULL,
+  `Gia` int(4) NOT NULL,
+  `LoaiMon` varchar(10) NOT NULL,
+   PRIMARY KEY (`IDMon`)
+); 
+INSERT INTO `NhaHang` (`IDMon`, `TenMon`, `Gia`, `LoaiMon`) VALUES
+(1, 'Phô mai Shahi', 500, 'Đồ ăn'),
+(2, 'Sô cô la Fondue', 200, 'Đồ ăn'),
+(3, 'Súp Manchow', 400, 'Đồ ăn'),
+(4, 'Phô mai Manchurian', 350, 'Đồ ăn'),
+(5, 'Gà Piri-Piri', 600, 'Đồ ăn'),
+(6, 'Pina-Colada', 250, 'Thức uống'),
+(7, 'Trà Arizona', 150, 'Thức uống'),
+(8, 'Cà phê Cappuccino', 180, 'Thức uống'),
+(9, 'Cà phê Espresso', 250, 'Thức uống'),
+(10, 'Nước ép dưa lưới', 100, 'Thức uống');
+
+
+CREATE TABLE `KhachHangCuaNhaHang` (
+  `TenKhachHang` varchar(20) NOT NULL,
+  `DiaChi` varchar(20) NOT NULL,
+  `SDT` bigint(10) NOT NULL,
+  `DoAn` varchar(20) NOT NULL,
+  `ThucUong` varchar(20) NOT NULL,
+  `Gia` int(7) NOT NULL,
+  `TrangThai` int(2) NOT NULL
+);
+
+
+CREATE TABLE `Phong` (
+  `IDPhong` int(3) NOT NULL AUTO_INCREMENT,
+  `LoaiPhong` varchar(20) NOT NULL,
+  `LoaiGiuong` varchar(20) NOT NULL,
+  `Gia` int(5) NOT NULL,
+   PRIMARY KEY (`IDPhong`)
+); 
+INSERT INTO `Phong` (`IDPhong`, `LoaiPhong`, `LoaiGiuong`, `Gia`) VALUES
+(1,'Phòng SUITE','giường QUEEN',9500),
+(2,'Phòng DELUXE','giường KING',7500),
+(3,'Phòng máy lạnh','giường KING',8000),
+(4,'Phòng không máy lạnh','giường đôi',3500),
+(5,'Phòng SUITE','giường đơn',5500),
+(6,'Phòng DELUXE','giường đôi',7000),
+(7,'Phòng máy lạnh','giường QUEEN',6500),
+(8,'Phòng không máy lạnh','giường đơn',5500);
+
+
+CREATE TABLE `KhachHangThuePhong` (
+  `TenKhachHang` varchar(20) NOT NULL,
+  `DiaChi` varchar(20) NOT NULL,
+  `SDT` bigint(10) NOT NULL,
+  `LoaiPhong` varchar(10) NOT NULL,
+  `LoaiGiuong` varchar(20) NOT NULL,
+  `Gia` int(7) NOT NULL,
+  `TrangThai` int(11) NOT NULL,
+  `IDPhong` int(11) NOT NULL,
+  PRIMARY KEY (`IDPhong`)
+);
+ 
